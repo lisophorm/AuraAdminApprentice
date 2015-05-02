@@ -102,7 +102,7 @@ myApp.controller("TrendController",function($route,$routeParams,$http,$scope,con
    console.log($routeParams);
 
     $scope.config = {
-        title: 'Products',
+        title: 'We put the label we want',
         tooltips: true,
         labels: false,
         mouseover: function() {},
@@ -116,24 +116,11 @@ myApp.controller("TrendController",function($route,$routeParams,$http,$scope,con
     };
 
     $scope.data = {
-        series: ['Sales', 'Income', 'Expense', 'Laptops', 'Keyboards'],
-        data: [{
-            x: "Laptops",
-            y: [100, 500, 0],
-            tooltip: "this is tooltip"
-        }, {
-            x: "Desktops",
-            y: [300, 100, 100]
-        }, {
-            x: "Mobiles",
-            y: [351]
-        }, {
-            x: "Tablets",
-            y: [54, 0, 879]
-        }]
+        series: [],
+        data: []
     };
-
-
+    console.log("prima");
+    console.log($scope.data);
     $scope.label=[];
     $scope.label[0]="very satisfied";
     $scope.label[1]="satisfied";
@@ -159,10 +146,13 @@ myApp.controller("TrendController",function($route,$routeParams,$http,$scope,con
             console.log($scope.trend);
             console.log("calling chart controller");
             for (var i = 0; i < $scope.trend.length; i ++) {
-                $scope.chartData.push($scope.trend[i]);
-            }
+              $scope.data.data.push({x:$scope.label[i],
+                y:[$scope.trend[i]]
+              });
 
-          console.log($scope.chartData);
+            }
+          console.log("dopo");
+          console.log($scope.data);
 
         }).
         error(function(data, status, headers, config) {
