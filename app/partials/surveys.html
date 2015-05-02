@@ -1,0 +1,81 @@
+<div class="surveys cf">
+
+  <!--h1>Add Survey</h1>
+  <div ng-controller="AddSurveyController">
+  <form class="formgroup addsurvey cf"
+    name="myform" id="myform"
+
+    >
+    <div class="inputwrapper">
+      <input type="text" name="surveyModel.Name"
+      placeholder="Survey name"
+        ng-model="surveyTitle" ng-required="true">
+    </div>
+    <button type="submit" ng-click="addSurvey()" class="btn"
+      ng-disabled="myform.$invalid">+</button>
+  </form>
+  </div-->
+  <h2>Your surveys</h2>
+
+
+
+  <div class="row">
+    <div class="col-sm-12">
+      <section class="panel">
+        <header class="panel-heading">
+          Dynamic Table
+             <span class="tools pull-right">
+                <a href="javascript:;" class="fa fa-chevron-down"></a>
+                <a href="javascript:;" class="fa fa-times"></a>
+             </span>
+        </header>
+        <div class="panel-body">
+          <div class="adv-table">
+            <table  datatable="ng" class="display table table-bordered table-striped" id="surveys-table">
+              <thead>
+              <tr>
+                <th>Display Trend</th>
+                <th>Survey Name</th>
+                <th>Description</th>
+                <th class="hidden-phone">Publish Status</th>
+                <th>Publish date</th>
+
+                <th class="hidden-phone">Delete</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr class="gradeX" ng-repeat="survey in surveys">
+                <td><a href="#/trend/{{survey.Id}}" class="btn btn-primary btn-xs"><i class="fa fa-bar-chart-o"></i></a></td>
+                <td> {{survey.Name}}</td>
+                <td>{{survey.Description}}</td>
+                <td class="center"><span ng-hide="survey.Status==0" class="label label-success label-mini">Published</span><span ng-hide="survey.Status==2" class="label label-danger label-mini">Hidden</span></td>
+                <td date-parser="medium">{{survey.PublishDate | date:'dd-MM-yyyy HH:mm:ss'}}</td>
+
+                <td>
+                  <button ng-hide="survey.Status==2" ng-click="publishSurvey(survey.Id)" class="btn btn-success btn-xs"><i title="Make this survey accessible to the public" class="fa fa-check"></i></button>
+
+                  <button ng-confirm-click="Do you really want to delete this survey?" confirmed-click="deleteSurvey(survey.Id)" class="btn btn-danger btn-xs"><i title="Delete this survey" class="fa fa-trash-o "></i></button>
+                </td>
+              </tr>
+
+              </tbody>
+              <tfoot>
+              <tr>
+                <th>Survey Name</th>
+                <th>Description</th>
+                <th class="hidden-phone">Publish Status</th>
+                <th>Publish date</th>
+
+                <th class="hidden-phone">Delete</th>
+              </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+
+
+</div><!-- surveys cf -->

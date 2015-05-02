@@ -1,0 +1,17 @@
+<div id="newSurvey" ng-controller="AddSurveyController">
+    <form>
+    <textarea ng-model="surveyModel.Name" cols="80" rows="2" placeholder="Type in the title of the survey" required class="clearfix"></textarea>
+    <textarea ng-model="surveyModel.Description" cols="80" rows="5" placeholder="Description of the survey" required class="clearfix"></textarea>
+<input type="text" ng-model="newQuestion" placeholder="type in a new question">
+    <button ng-click="addItem()" ng-disabled="newQuestion.length<2">Add this question</button>
+
+    <div id="questionsList">
+        <ul>
+        <div ng-repeat="item in surveyModel.questions">
+            <li>{{item.QuestionText}} - {{item.Pos}}  <button ng-click="slideUp(item.Pos)">up</button> - <button ng-click="slideDown(item.Pos)">down</button></li>
+        </div>
+        </ul>
+    </div>
+        <input type="submit" ng-click="addSurvey()" ng-disabled="surveyModel.questions.length<2" value="Save" />
+    </form>
+</div>
