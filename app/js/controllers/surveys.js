@@ -7,7 +7,8 @@ myApp.controller('SurveysController',
 
       $scope.$on('$viewContentLoaded', function() {
           console.log("survey main content loaded, initializing datatables");
-     //     $("#surveys-table").dataTable();
+          setTimeout(function() {$("#surveys-table").dataTable();},3000);
+
       });
 
     var req = {

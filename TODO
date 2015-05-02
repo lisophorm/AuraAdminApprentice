@@ -1,2 +1,3 @@
 //TODO refactor all the loose JS in the app/js folder
-//TODO cleanup survey.js
+//TODO datatable delay hack at surveys.js - investigate low priority
+// TODO check datatable "loading..."
