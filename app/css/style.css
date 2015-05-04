@@ -357,6 +357,9 @@ ul.sidebar-menu li a.active i {
 }
 
 a.logo {
+    height: 30px;
+    width: 200px;
+    background: url("../img/logo-aura-traced.png") no-repeat;
     font-size: 21px;
     color: #2e2e2e;
     float: left;
