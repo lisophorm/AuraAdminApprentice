@@ -7,6 +7,7 @@
 //TODO loader between pages
 //TODO upload broadcast event (important for learning curve)
 **** lower priority
+//TODO put in proper location FileUploader.js
 //TODO refactor all the loose JS in the app/js folder
 //TODO NG-ANIMATE where possible
 //TODO datatable delay hack at surveys.js - investigate
