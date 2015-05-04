@@ -1,4 +1,5 @@
 //TODO refactor all the loose JS in the app/js folder
 //TODO datatable delay hack at surveys.js - investigate low priority
-// TODO check datatable "loading..."
+//TODO check datatable "loading..."
 //TODO conditional inc js css
+//TODO scaling of charts
