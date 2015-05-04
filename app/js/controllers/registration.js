@@ -3,10 +3,10 @@ myApp.controller('RegistrationController',
   
   $scope.login = function() {
     $location.path('/surveys');
-  } //login
+  }; //login
 
   $scope.register = function() {
 
-  } //login
+  }; //login
 
 }); //RegistrationController

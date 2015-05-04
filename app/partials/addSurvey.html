@@ -1,17 +1,90 @@
 <div id="newSurvey" ng-controller="AddSurveyController">
-    <form>
+
     <textarea ng-model="surveyModel.Name" cols="80" rows="2" placeholder="Type in the title of the survey" required class="clearfix"></textarea>
     <textarea ng-model="surveyModel.Description" cols="80" rows="5" placeholder="Description of the survey" required class="clearfix"></textarea>
-<input type="text" ng-model="newQuestion" placeholder="type in a new question">
-    <button ng-click="addItem()" ng-disabled="newQuestion.length<2">Add this question</button>
 
+    <div class="row">
+        <div class="col-md-12">
+
+
+    <section class="panel">
+
+        <header class="panel-heading">
+            Question list
+        </header>
     <div id="questionsList">
-        <ul>
-        <div ng-repeat="item in surveyModel.questions">
-            <li>{{item.QuestionText}} - {{item.Pos}}  <button ng-click="slideUp(item.Pos)">up</button> - <button ng-click="slideDown(item.Pos)">down</button></li>
-        </div>
+        <ul id="sortable" class="task-list">
+
+            <li ng-repeat="item in surveyModel.questions" class="list-primary">
+                <i class=" fa fa-ellipsis-v"></i>
+                <div class="task-checkbox">
+                    <input type="checkbox" class="list-child" value="">
+                </div>
+                <div class="task-title">
+                    <span class="task-title-sp">{{item.QuestionText}} - {{item.Pos}}</span>
+                    <span class="badge badge-sm label-success">2 Days</span>
+                    <div class="pull-right hidden-phone">
+                        <button ng-click="slideUp(item.Pos)" class="btn btn-success btn-xs fa  fa-arrow-up"></button>
+                        <button ng-click="slideDown(item.Pos)" class="btn btn-primary btn-xs fa  fa-arrow-down"></button>
+                        <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
+                    </div>
+                </div>
+            </li>
+
+
         </ul>
     </div>
-        <input type="submit" ng-click="addSurvey()" ng-disabled="surveyModel.questions.length<2" value="Save" />
-    </form>
+
+    </section>
+        </div>
+    </div>
+
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel tasks-widget">
+            <header class="panel-heading">
+                List of questions
+            </header>
+            <div class="panel-body">
+                <div class="task-content">
+                    <ul id="sortable" class="task-list">
+                        <li class="list-primary" ng-repeat="item in surveyModel.questions">
+                            <i class=" fa fa-ellipsis-v"></i>
+                            <div class="task-title">
+                                <span class="task-title-sp">{{item.QuestionText}} - {{item.Pos}}</span>
+                                <div class="pull-right hidden-phone">
+                                    <button ng-click="slideUp(item.Pos)" class="btn btn-success btn-xs fa  fa-arrow-up"></button>
+                                    <button ng-click="slideDown(item.Pos)" class="btn btn-primary btn-xs fa  fa-arrow-down"></button>
+                                    <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class=" add-task-row">
+<div class="col-md-10">
+    <input type="text" width="40" class="form-control" ng-model="newQuestion" class="form-control" placeholder="type in a new question">
+</div>                    <button ng-click="addItem()" ng-disabled="newQuestion.length<2" class="btn btn-success pull-right">Add this question</button>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel tasks-widget">
+
+                <div class="panel-body">
+
+                    <div class=" add-task-row">
+                        <input class="btn btn-default btn-sm pull-right" type="submit" ng-click="addSurvey()" ng-disabled="surveyModel.questions.length<2" value="Save" />
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
 </div>

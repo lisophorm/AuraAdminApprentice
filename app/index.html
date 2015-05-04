@@ -45,6 +45,26 @@
   <script src="bower_components/nvd3/nv.d3.js"></script>
   <script src="bower_components/angularjs-nvd3-directives/dist/angularjs-nvd3-directives.js"></script>
   <link rel="stylesheet" href="bower_components/nvd3/nv.d3.css"/>
+
+  <!-- tasks aka questions -->
+
+  <link href="css/tasks.css" rel="stylesheet">
+
+  <!-- blueimp Gallery styles -->
+  <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+  <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+  <link rel="stylesheet" href="assets/file-uploader/css/jquery.fileupload.css">
+  <link rel="stylesheet" href="assets/file-uploader/css/jquery.fileupload-ui.css">
+  <!-- CSS adjustments for browsers with JavaScript disabled -->
+  <noscript>
+    <link rel="stylesheet" href="assets/file-uploader/css/jquery.fileupload-noscript.css">
+  </noscript>
+  <noscript>
+    <link rel="stylesheet" href="assets/file-uploader/css/jquery.fileupload-ui-noscript.css">
+  </noscript>
+
+
+
 </head>
 <body>
 
@@ -299,6 +319,32 @@
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper site-min-height">
+        <!--vertical center Modal start-->
+        <div class="modal fade top-modal-without-space " id="myModal10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog ">
+            <div class="modal-content-wrap">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title">Modal Tittle</h4>
+                </div>
+                <div class="modal-body">
+
+                  Body goes here...
+
+                </div>
+                <div class="modal-footer">
+                  <button data-dismiss="modal" class="btn btn-default" type="button">Close</button>
+                  <button class="btn btn-warning" type="button"> Confirm</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- vertical center Modal end -->
+        <a class="btn btn-success" data-toggle="modal" href="#myModal10">
+          Default
+        </a>
         <!-- page start-->
         <div ng-view></div>
         <!-- page end-->
@@ -316,6 +362,7 @@
     </footer>
     <!--footer end-->
   </section>
+
 
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="js/jquery.js"></script>
@@ -343,9 +390,6 @@
   <script src="js/controllers/registration.js"></script>
   <script src="js/controllers/surveys.js"></script>
   <script src="js/FileUpload.js"></script>
-  <script src="components/version/version.js"></script>
-  <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
 
   <!-- datatables -->
   <script type="text/javascript" language="javascript" src="bower_components/datatables/media/js/jquery.dataTables.min.js"></script>

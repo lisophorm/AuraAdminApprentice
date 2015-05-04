@@ -18,7 +18,7 @@ myApp.controller('SurveysController',
         'Authorization': "123456"
       },
       data: { test: 'test' }
-    }
+    };
 
     $http(req).
         success(function(data, status, headers, config) {
@@ -32,14 +32,7 @@ myApp.controller('SurveysController',
 
         });
 
-  $scope.addSurvey = function() {
-    surveys.$push({
-      name: $scope.meetingname,
-      date: Firebase.ServerValue.TIMESTAMP
-    }).then(function() {
-      $scope.meetingname='';
-    });
-  }; //addsurvey
+
 
       $scope.deleteSurvey=function(surveyId) {
           console.log("deletingh survey "+surveyId);
@@ -50,7 +43,7 @@ myApp.controller('SurveysController',
                   'Authorization': "123456"
               }
 
-          }
+          };
 
           $http(req).
               success(function(data, status, headers, config) {
@@ -66,7 +59,7 @@ myApp.controller('SurveysController',
 
               });
 
-      }
+      };
 
       $scope.publishSurvey=function(surveyId) {
           console.log("publishing survey "+surveyId);
@@ -77,7 +70,7 @@ myApp.controller('SurveysController',
                   'Authorization': "123456"
               }
 
-          }
+          };
 
          $http(req).
               success(function(data, status, headers, config) {
@@ -136,7 +129,7 @@ myApp.controller("TrendController",function($route,$routeParams,$http,$scope,con
             'Authorization': "123456"
         },
         data: { test: 'test' }
-    }
+    };
     $scope.chartData=[];
   $http(req).
         success(function(data, status, headers, config) {
@@ -168,7 +161,7 @@ myApp.controller("AddSurveyController",function($route,$routeParams,$http,$scope
     console.log($routeParams);
 
     $scope.newQuestion="";
-    $scope.surveyModel=new Object();
+    $scope.surveyModel={};
     $scope.surveyModel.questions=[];
     $scope.questID=0;
 
@@ -198,7 +191,7 @@ myApp.controller("AddSurveyController",function($route,$routeParams,$http,$scope
 
     $scope.addSurvey = function() {
         console.log("la marianna la va in campagna");
-    }
+    };
 
     $scope.addItem=function() {
 
@@ -217,7 +210,7 @@ myApp.controller("AddSurveyController",function($route,$routeParams,$http,$scope
         console.log("add item"+$scope.surveyModel.questions.length);
 
     $scope.newQuestion="";
-    }
+    };
 
     $scope.addSurvey = function() {
         console.log("insertingh a new survey");
@@ -229,7 +222,7 @@ myApp.controller("AddSurveyController",function($route,$routeParams,$http,$scope
          'Authorization': "123456"
          },
          data: $scope.surveyModel
-         }
+         };
 
          $http(req).
          success(function(data, status, headers, config) {
@@ -248,7 +241,7 @@ myApp.controller("AddSurveyController",function($route,$routeParams,$http,$scope
          });
 
 
-    }
+    };
 
     $scope.slideUp=function(theVar) {
         console.log("slide up:"+theVar);
@@ -264,7 +257,7 @@ myApp.controller("AddSurveyController",function($route,$routeParams,$http,$scope
             $scope.surveyModel.questions.move(pos,pos-1);
         }
 
-    }
+    };
 
     $scope.slideDown=function(theVar) {
         console.log("slide down:");
@@ -282,7 +275,7 @@ myApp.controller("AddSurveyController",function($route,$routeParams,$http,$scope
     }
 
 
-})
+});
 
 /*
  {
@@ -343,4 +336,4 @@ Array.prototype.move = function (pos1, pos2) {
         // put element from position 1 to destination
         this[pos2] = tmp;
     }
-}
+};
