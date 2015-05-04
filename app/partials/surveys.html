@@ -52,10 +52,10 @@
                 <td date-parser="medium">{{survey.PublishDate | date:'dd-MM-yyyy HH:mm:ss'}}</td>
 
                 <td>
-                  <button ng-hide="survey.Status==2" ng-click="publishSurvey(survey.Id)" class="btn btn-success btn-xs"><i title="Make this survey accessible to the public" class="fa fa-check"></i></button>
+ <div class="pull-right">                 <button ng-hide="survey.Status==2" ng-click="publishSurvey(survey.Id)" class="btn btn-success btn-xs"><i title="Make this survey accessible to the public" class="fa fa-check"></i></button>
 
                   <button ng-confirm-click="Do you really want to delete this survey?" confirmed-click="deleteSurvey(survey.Id)" class="btn btn-danger btn-xs"><i title="Delete this survey" class="fa fa-trash-o "></i></button>
-                </td>
+</div>                </td>
               </tr>
 
               </tbody>

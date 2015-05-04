@@ -14,8 +14,9 @@ myApp.directive('fileModel', ['$parse', function ($parse) {
     };
 }]);
 
-myApp.service('fileUpload', function ($http,config) {
+myApp.service('fileUpload', function ($http,config,$rootScope,$q) {
     console.log("UPLOAD SERVICE");
+    var defer = $q.defer();
     console.log(config.baseUrl);
     this.uploadFileToUrl = function(file, uploadUrl){
         console.log("uploadFileToUrl");
@@ -46,7 +47,7 @@ myApp.service('fileUpload', function ($http,config) {
                         "FieldSeparator": "A",
                         "FileName": result.data[0].StoredFileName
                     }
-                }
+                };
 
                 return $http(req).
                     success(function(data, status, headers, config) {
@@ -72,12 +73,12 @@ myApp.service('fileUpload', function ($http,config) {
                 console.log("chain update");
                 console.log(update);
         }).then(function(secondCallResult){
+                defer.resolve();
                 console.log("import emails");
                 console.log(secondCallResult);
                 alert("Users added:"+secondCallResult.data.UsersAdded.length+" users not added "+secondCallResult.data.UsersNotAdded.length);
-            });;
-
-       /* $http.post(uploadUrl, fd, {
+            });
+        /* $http.post(uploadUrl, fd, {
             transformRequest: angular.identity,
             headers: {
                 'Authorization': "123456",
@@ -102,6 +103,7 @@ myApp.service('fileUpload', function ($http,config) {
 
 myApp.controller('fileUploadCTRL',  function($scope, config,fileUpload){
     console.log("UPLOADCONTROLLER");
+    $scope.valore="gino";
     console.log(config.baseUrl);
     $scope.uploadFile = function(){
         var file = $scope.myFile;

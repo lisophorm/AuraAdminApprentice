@@ -1,9 +1,46 @@
     <!-- page start-->
+
     <section class="panel">
         <header class="panel-heading">
             File Upload
         </header>
         <div class="panel-body">
+            <div class="row state-overview" ng-hide="uploadCompleted">
+                <div class="col-lg-3 col-sm-6">
+                    <section class="panel">
+                        <div class="symbol blue">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        <div class="value">
+                            <h1 class="count">495</h1>
+                            <p>New Email</p>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <section class="panel">
+                        <div class="symbol red">
+                            <i class="fa  fa-exclamation"></i>
+                        </div>
+                        <div class="value">
+                            <h1 class=" count2">35</h1>
+                            <p>Not <uplo>aded</uplo></p>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <section class="panel">
+                        <div class="symbol yellow">
+                            <i class="fa fa-shopping-cart"></i>
+                        </div>
+                        <div class="value">
+                            <h1 class=" count3">{{valore}}</h1>
+                            <p>Only God knows...</p>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
             <div class="row">
                 <div class="col-md-12">
                     <p>
@@ -59,4 +96,5 @@
 
         </div>
     </section>
+
     <!-- page end-->

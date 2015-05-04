@@ -1,3 +1,4 @@
+
 <div id="newSurvey" ng-controller="AddSurveyController">
 
 <div class="row"> <div class="col-md-12">
@@ -33,7 +34,7 @@
                 <div class="panel-body">
                     <div class="task-content">
                         <ul id="sortable" class="task-list">
-                            <li class="list-primary" ng-repeat="item in surveyModel.questions">
+                            <li class="list-primary" ng-animate="'animate'" ng-repeat="item in surveyModel.questions">
                                 <i class=" fa fa-ellipsis-v"></i>
 
                                 <div class="task-title">
@@ -58,7 +59,7 @@
                                    class="form-control" placeholder="type in a new question">
                         </div>
                         <button ng-click="addItem()" ng-disabled="newQuestion.length<2"
-                                class="btn btn-success pull-right">Add this question
+                                class="btn btn-success pull-right"><i class="fa fa-plus">Add this question</i>
                         </button>
                     </div>
                 </div>
@@ -73,8 +74,8 @@
                 <div class="panel-body">
 
                     <div class=" add-task-row">
-                        <input class="btn btn-default btn-sm pull-right" type="submit" ng-click="addSurvey()"
-                               ng-disabled="surveyModel.questions.length<2" value="Save"/>
+                        <button type="button" class="btn btn-success btn-lg pull-right" ng-click="addSurvey()"
+                               ng-disabled="surveyModel.questions.length<2"><i class="fa fa-save"> Create new survey </i></button>
                     </div>
                 </div>
             </section>
