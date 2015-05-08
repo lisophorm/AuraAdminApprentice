@@ -1,13 +1,12 @@
 myApp.controller('SurveysController',
   function($scope, $http,config,$route,$location) {
-
+      $scope.dataLoaded=false;
     console.log("inside survey controller");
       $scope.format = 'dd.MM.yyyy';
       $scope.date = new Date();
 
       $scope.$on('$viewContentLoaded', function() {
-          console.log("survey main content loaded, initializing datatables");
-          setTimeout(function() {$("#surveys-table").dataTable();},3000);
+          console.log("survey main content loaded");
 
       });
 
@@ -91,70 +90,6 @@ myApp.controller('SurveysController',
 
 }); //SurveysController
 
-myApp.controller("TrendController",function($route,$routeParams,$http,$scope,config){
-    console.log("trend");
-   console.log($routeParams);
-
-    $scope.config = {
-        title: 'We put the label we want',
-        tooltips: true,
-        labels: false,
-        mouseover: function() {},
-        mouseout: function() {},
-        click: function() {},
-        legend: {
-            display: true,
-            //could be 'left, right'
-            position: 'right'
-        }
-    };
-
-    $scope.data = {
-        series: [],
-        data: []
-    };
-    console.log("prima");
-    console.log($scope.data);
-    $scope.label=[];
-    $scope.label[0]="very satisfied";
-    $scope.label[1]="satisfied";
-    $scope.label[2]="neutral";
-    $scope.label[3]="dissatisfied";
-    $scope.label[4]="very dissatisfied";
-
-    var req = {
-        method: 'GET',
-        url: config.baseUrl+'api/admin/surveyscore/'+$routeParams.id+'/answerstrend',
-        headers: {
-            'Authorization': "123456"
-        },
-        data: { test: 'test' }
-    };
-    $scope.chartData=[];
-  $http(req).
-        success(function(data, status, headers, config) {
-            console.log("SUCCESS get answertrend");
-            console.log(data);
-
-            $scope.trend=data.MoodTotal;
-            console.log($scope.trend);
-            console.log("calling chart controller");
-            for (var i = 0; i < $scope.trend.length; i ++) {
-              $scope.data.data.push({x:$scope.label[i],
-                y:[$scope.trend[i]]
-              });
-
-            }
-          console.log("dopo");
-          console.log($scope.data);
-
-        }).
-        error(function(data, status, headers, config) {
-            console.log("ERROR  get answertrend");
-
-        });
-
-});
 
 myApp.controller("AddSurveyController",function($route,$routeParams,$http,$scope,$location,config){
     console.log("add survey controller ");
@@ -240,6 +175,23 @@ myApp.controller("AddSurveyController",function($route,$routeParams,$http,$scope
                  console.log(config);
          });
 
+
+    };
+
+
+    $scope.deleteQuestion=function(theVar) {
+        console.log("delete question:"+theVar);
+        var pos=0;
+        for(i=0;i<$scope.surveyModel.questions.length;i++) {
+            if($scope.surveyModel.questions[i].Pos==theVar) {
+                $scope.surveyModel.questions.splice(i,1);
+                console.log("item found at position "+pos);
+                break;
+            }
+        }
+        if(pos>0) {
+            $scope.surveyModel.questions.move(pos,pos-1);
+        }
 
     };
 

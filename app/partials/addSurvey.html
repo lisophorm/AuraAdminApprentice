@@ -44,7 +44,7 @@
                                                 class="btn btn-success btn-xs fa  fa-arrow-up"></button>
                                         <button ng-click="slideDown(item.Pos)"
                                                 class="btn btn-primary btn-xs fa  fa-arrow-down"></button>
-                                        <button class="btn btn-danger btn-xs fa fa-trash-o"></button>
+                                        <button ng-click="deleteQuestion(item.Pos)" class="btn btn-danger btn-xs fa fa-trash-o"></button>
                                     </div>
                                 </div>
                             </li>
@@ -58,7 +58,7 @@
                                    class="form-control" placeholder="type in a new question">
                         </div>
                         <button ng-click="addItem()" ng-disabled="newQuestion.length<2"
-                                class="btn btn-success pull-right"><i class="fa fa-plus">Add this question</i>
+                                class="btn btn-success pull-right"><i class="fa fa-plus">&nbsp;Add question</i>
                         </button>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
 
                     <div class=" add-task-row">
                         <button type="button" class="btn btn-success btn-lg pull-right" ng-click="addSurvey()"
-                               ng-disabled="surveyModel.questions.length<2"><i class="fa fa-save"> Create new survey </i></button>
+                               ng-disabled="surveyModel.questions.length<1"><i class="fa fa-save"> Create new survey </i></button>
                     </div>
                 </div>
             </section>

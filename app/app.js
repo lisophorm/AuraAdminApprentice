@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'appControllers','datatables','angularCharts']);
+var myApp = angular.module('myApp', ['ngRoute', 'appControllers','angularCharts','ui.bootstrap']);
 
 myApp.constant('config', {
     baseUrl: 'https://api.auratrend.co.uk/'
@@ -8,6 +8,7 @@ myApp.constant('config', {
 
 var appControllers = angular.module('appControllers',
     []);
+
 
 myApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider.

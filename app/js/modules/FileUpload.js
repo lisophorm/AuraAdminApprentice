@@ -59,6 +59,7 @@ myApp.service('fileUpload', function ($http,config,$rootScope,$q) {
 
                     }).
                     error(function(data, status, headers, config) {
+                        $rootScope.$emit("uploadErrorEvent", data);
                         console.log("ERROR");
                         console.log(data);
 
@@ -66,6 +67,7 @@ myApp.service('fileUpload', function ($http,config,$rootScope,$q) {
 
 
         }, function(error) {
+                $rootScope.$emit("importErrorEvent", error);
                 console.log("chain error");
                 console.log(error);
                 alert(error.data.Message);
@@ -76,7 +78,7 @@ myApp.service('fileUpload', function ($http,config,$rootScope,$q) {
                 defer.resolve();
                 console.log("import emails");
                 console.log(secondCallResult);
-                alert("Users added:"+secondCallResult.data.UsersAdded.length+" users not added "+secondCallResult.data.UsersNotAdded.length);
+                $rootScope.$emit("importCompleteEvent", secondCallResult.data);
             });
         /* $http.post(uploadUrl, fd, {
             transformRequest: angular.identity,
@@ -101,11 +103,48 @@ myApp.service('fileUpload', function ($http,config,$rootScope,$q) {
     }
 });
 
-myApp.controller('fileUploadCTRL',  function($scope, config,fileUpload){
+myApp.controller('fileUploadCTRL',  function($scope,$rootScope, config,fileUpload){
     console.log("UPLOADCONTROLLER");
     $scope.valore="gino";
+
+    $scope.readyToUpload=false;
+    $scope.isUploading=false;
+
+    $rootScope.$on('importCompleteEvent', function(event, data) {
+        $scope.isUploading=false;
+        console.log("********************************* la marianna la va in campagna");
+        $scope.emailsImported= data.UsersAdded.length;
+        $scope.emailsNotImported= data.UsersNotAdded.length;
+    });
+
+    $rootScope.$on('importCompleteEvent', function(event, data) {
+        $scope.isUploading=false;
+        console.log("********************************* la marianna la va in campagna");
+        $scope.emailsImported= data.UsersAdded.length;
+        $scope.emailsNotImported= data.UsersNotAdded.length;
+    });
+
+    $rootScope.$on('importCompleteEvent', function(event, data) {
+        $scope.isUploading=false;
+
+        console.log("********************************* la marianna la va in campagna");
+        $scope.emailsImported= data.UsersAdded.length;
+        $scope.emailsNotImported= data.UsersNotAdded.length;
+    });
+
+    $scope.$watch('myFile', function() {
+        if($scope.myFile.type=="text/csv") {
+            $scope.readyToUpload=true;
+        } else {
+            alert("The only format allowed is CSV");
+            $scope.readyToUpload=false;
+        }
+    });
+
     console.log(config.baseUrl);
     $scope.uploadFile = function(){
+        $scope.readyToUpload=false;
+        $scope.isUploading=true;
         var file = $scope.myFile;
         console.log('file is ' + JSON.stringify(file));
         var uploadUrl = config.baseUrl+"api/admin/upload";

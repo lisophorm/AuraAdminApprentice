@@ -13,10 +13,6 @@ $(function() {
     });
 });
 
-// right slidebar
-$(function(){
- $.slidebars();
-});
 
 var Script = function () {
 
@@ -49,10 +45,13 @@ var Script = function () {
         $(window).on('load', responsiveView);
         $(window).on('resize', responsiveView);
     });
-
+//site-footer
     $('.fa-bars').click(function () {
         if ($('#sidebar > ul').is(":visible") === true) {
             $('#main-content').css({
+                'margin-left': '0px'
+            });
+            $('#pageFooter').css({
                 'margin-left': '0px'
             });
             $('#sidebar').css({
@@ -62,6 +61,9 @@ var Script = function () {
             $("#container").addClass("sidebar-closed");
         } else {
             $('#main-content').css({
+                'margin-left': '210px'
+            });
+            $('#pageFooter').css({
                 'margin-left': '210px'
             });
             $('#sidebar > ul').show();

@@ -21,6 +21,9 @@
 
   <div class="row">
     <div class="col-sm-12">
+        <div ng-hide="surveys" class="preloader">
+            <!-- image here via CSS -->
+        </div>
       <section class="panel">
         <header class="panel-heading">
             <h2>Your surveys</h2>
@@ -29,9 +32,9 @@
                 <a href="javascript:" class="fa fa-times"></a>
              </span>
         </header>
-        <div class="panel-body">
+        <div class="panel-body" ng-show="surveys">
           <div class="adv-table">
-            <table class="display table table-bordered table-striped" id="surveys-table">
+            <table class="display table table-bordered table-striped" id="surveys-table" >
               <thead>
               <tr>
                 <th>Display Trend</th>

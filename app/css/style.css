@@ -6214,3 +6214,112 @@ header.blue-bg .search:focus {
     background: #fff;
     border-radius:4px;
 }
+
+#pageFooter {
+    border-top: 1px solid #e7ecf8;
+    background-color: #ffffff;
+    margin-left:210px;
+    padding-left:8px;
+    padding-right:8px;
+
+
+
+    display: block;
+    float: none;
+    width: 980px;
+    background-color: White;
+    background-image: none;
+    clear:both;
+
+}
+
+#footerLegalese {
+    float: left;
+    display: inline;
+    width: 730px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+#footerLegalese p {
+    color: #B2B2B2;
+    margin-bottom: 10px;
+}
+
+#footerLegalWrapper {
+    float: left;
+    display: inline;
+    margin-top: 10px;
+    margin-left: 6px;
+}
+
+#footerLegalWrapper li {
+    display: inline;
+    list-style-type: none;
+    padding: 0 5px 0 5px;
+    float: left;
+    border-right: 1px solid #ccc;
+    text-align: center;
+}
+#footerLegalWrapper li.selected {
+    background-color: #FFFFFF;
+    font-weight: bold;
+    border: 0;
+    color: #B2B2B2;
+}
+#footerLegalWrapper li.last {
+    border: 0;
+}
+#footerLegalWrapper li a:link {
+    color: #B2B2B2;
+    text-decoration: none;
+}
+#footerLegalWrapper li a:visited {
+    color: #B2B2B2;
+    text-decoration: none;
+}
+#footerLegalWrapper li a:hover {
+    text-decoration: underline;
+}
+
+#globalFooterNavWrapper {
+    float: right;
+    display: inline;
+    /*width: 230px;*/
+    margin-top: 10px;
+}
+
+#globalFooterNavWrapper li {
+    display: inline;
+    list-style-type: none;
+    padding: 0 7px 0 7px;
+    float: left;
+    border-right: 1px solid #ccc;
+    text-align: center;
+}
+#globalFooterNavWrapper li.selected {
+    background-color: #FFFFFF;
+    font-weight: bold;
+    border: 0;
+    color: #B2B2B2;
+}
+#globalFooterNavWrapper li.last {
+    border: 0;
+}
+#globalFooterNavWrapper li a:link {
+    color: #B2B2B2;
+    text-decoration: none;
+}
+#globalFooterNavWrapper li a:visited {
+    color: #B2B2B2;
+    text-decoration: none;
+}
+#globalFooterNavWrapper li a:hover {
+    text-decoration: underline;
+}
+
+
+
+.preloader {
+    padding: 50px;
+    background: url('../img/preloader.gif') no-repeat 50% 50% transparent;
+}

@@ -6,39 +6,29 @@
         </header>
         <div class="panel-body">
             <div class="row state-overview" ng-hide="uploadCompleted">
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-lg-3 col-sm-6" ng-show="emailsImported>0">
                     <section class="panel">
                         <div class="symbol blue">
                             <i class="fa fa-check"></i>
                         </div>
                         <div class="value">
-                            <h1 class="count">495</h1>
-                            <p>New Email</p>
+                            <h1 class="count">{{emailsImported}}</h1>
+                            <p>Emails imported</p>
                         </div>
                     </section>
                 </div>
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-lg-3 col-sm-6" ng-show="emailsNotImported>0">
                     <section class="panel">
                         <div class="symbol red">
                             <i class="fa  fa-exclamation"></i>
                         </div>
                         <div class="value">
-                            <h1 class=" count2">35</h1>
-                            <p>Not <uplo>aded</uplo></p>
+                            <h1 class=" count2">{{emailsNotImported}}</h1>
+                            <p>Emails not imported</p>
                         </div>
                     </section>
                 </div>
-                <div class="col-lg-3 col-sm-6">
-                    <section class="panel">
-                        <div class="symbol yellow">
-                            <i class="fa fa-shopping-cart"></i>
-                        </div>
-                        <div class="value">
-                            <h1 class=" count3">{{valore}}</h1>
-                            <p>Only God knows...</p>
-                        </div>
-                    </section>
-                </div>
+
 
             </div>
             <div class="row">
@@ -57,7 +47,8 @@
                                         <span>Select file.</span>
                                         <input type="file" name="files[]" file-model="myFile">
                                         </span>
-                                <button ng-click="uploadFile()" class="btn btn-large btn-primary start">
+                                <span>file: {{myFile}}</span>
+                                <button ng-click="uploadFile()" ng-show="readyToUpload" class="btn btn-large btn-primary start">
                                     <i class="glyphicon glyphicon-upload"></i>
                                     <span>Start upload</span>
                                 </button>
@@ -65,16 +56,9 @@
                                 <span class="fileupload-process"></span>
                             </div>
                             <!-- The global progress state -->
-                            <div class="col-lg-5 fileupload-progress fade">
+                            <div class="col-lg-5 ">
                                 <!-- The global progress bar -->
-                                <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-                                    <div class="progress-bar progress-bar-success" style="width:0%;">
-                                    </div>
-                                </div>
-                                <!-- The extended global progress state -->
-                                <div class="progress-extended">
-                                    &nbsp;
-                                </div>
+                                <progressbar class="progress-striped active" max="200" value="200" type="success" ng-show="isUploading"><i>Upload in progress</i></progressbar>
                             </div>
                         </div>
 
